@@ -8,13 +8,14 @@ export default function PostContent(props: { data: PostQuery; variables: {}; que
   const { data } = useTina(props);
   const post = data.post;
 
+  if (!post) return null;
   return (
     <article
-      data-tina-field={tinaField(data.post, 'body')}
+      data-tina-field={tinaField(post, 'body')}
       className='min-w-full py-6 prose prose-slate dark:prose-invert prose-sm'
     >
-      <h1>{post?.title}</h1>
-      <TinaMarkdown content={post?.body} />
+      <h1>{post.title}</h1>
+      <TinaMarkdown content={post.body} />
     </article>
   );
 }

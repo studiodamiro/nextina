@@ -20,6 +20,18 @@ export default defineConfig({
         ],
         ui: { router: ({ document }) => `/posts/${document._sys.filename}` },
       },
+      {
+        name: 'page',
+        label: 'Pages',
+        path: 'content/pages',
+        format: 'mdx',
+        fields: [
+          { type: 'string', name: 'title', label: 'Title', isTitle: true, required: true },
+          { type: 'string', name: 'description', label: 'Description', required: false, ui: { component: 'textarea' } },
+          { type: 'rich-text', name: 'body', label: 'Body', isBody: true },
+        ],
+        ui: { router: ({ document }) => `/${document._sys.filename}` },
+      },
     ],
   },
 });
