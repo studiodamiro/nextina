@@ -3,6 +3,13 @@
 import { PostQuery } from '@/tina/__generated__/types';
 import { tinaField, useTina } from 'tinacms/dist/react';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import Counter from '../counter';
+import NextImage, { ImageProps } from 'next/image';
+
+const components = {
+  Image: (props: ImageProps) => <NextImage width={718} height={404} {...props} />,
+  Counter,
+};
 
 export default function PostContent(props: { data: PostQuery; variables: {}; query: string }) {
   const { data } = useTina(props);
@@ -15,7 +22,7 @@ export default function PostContent(props: { data: PostQuery; variables: {}; que
       className='min-w-full py-6 prose prose-slate dark:prose-invert prose-sm'
     >
       <h1>{post.title}</h1>
-      <TinaMarkdown content={post.body} />
+      <TinaMarkdown content={post.body} components={components} />
     </article>
   );
 }
