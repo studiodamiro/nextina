@@ -14,10 +14,11 @@ export default function PostList(props: { data: PostConnectionQuery; variables: 
       {posts?.map((edge, i) => {
         const post = edge?.node;
         const slug = `/posts/${post?._sys.breadcrumbs.join('/')}`;
+
         return (
-          <Link key={i} href={slug} className='text-xl font-bold'>
-            {post?.title}
-            {/* {post?.description} */}
+          <Link key={i} href={slug}>
+            <span className='text-xl font-bold'>{post?.title}</span>
+            <p className='text-sm'>{post?.description}</p>
           </Link>
         );
       })}
