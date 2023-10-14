@@ -17,6 +17,7 @@ export default function PostList(props: { data: PostConnectionQuery; variables: 
         return (
           <Link key={i} href={slug} className='text-xl font-bold'>
             {post?.title}
+            {/* {post?.description} */}
           </Link>
         );
       })}
