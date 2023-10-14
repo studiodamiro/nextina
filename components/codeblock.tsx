@@ -1,10 +1,14 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import atomOneDark from 'react-syntax-highlighter/dist/cjs/styles/prism/material-dark';
+import { coldarkDark as Style } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-export type CodeProps = { children: string; language?: string };
+// Replace the import for Style to change code_block theme
+// Pick one here: https://github.com/react-syntax-highlighter/react-syntax-highlighter/blob/master/AVAILABLE_STYLES_PRISM.MD
+// coldarkCold / coldarkDark
 
-const Codeblock = ({ children, language }: CodeProps) => (
-  <SyntaxHighlighter children={children || ''} language={language || 'bash'} style={atomOneDark} />
-);
-
-export default Codeblock;
+export default function Codeblock({ children, language }: { children: string; language: string }) {
+  return (
+    <SyntaxHighlighter language={language} style={Style}>
+      {children}
+    </SyntaxHighlighter>
+  );
+}

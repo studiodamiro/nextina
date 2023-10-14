@@ -1,16 +1,20 @@
 'use client';
 
-import { PostQuery } from '@/tina/__generated__/types';
+import NextImage, { ImageProps } from 'next/image';
 import { tinaField, useTina } from 'tinacms/dist/react';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { PostQuery } from '@/tina/__generated__/types';
+import Codeblock from '../codeblock';
 import Counter from '../counter';
-import NextImage, { ImageProps } from 'next/image';
-import Codeblock, { CodeProps } from '../codeblock';
 
 const components = {
-  Counter,
-  Image: (props: ImageProps) => <NextImage width={718} height={404} {...props} />,
-  Codeblock: (props: CodeProps) => <Codeblock children={props.children} language={props.language} />,
+  Image: (props: ImageProps) => {
+    return <NextImage width={718} height={404} {...props} />;
+  },
+  code_block: (props: any) => {
+    return <Codeblock language={props.lang}>{props.value}</Codeblock>;
+  },
+  Counter, // Custom component
 };
 
 export default function PostContent(props: { data: PostQuery; variables: {}; query: string }) {
