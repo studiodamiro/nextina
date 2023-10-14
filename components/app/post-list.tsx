@@ -10,13 +10,12 @@ export default function PostList(props: { data: PostConnectionQuery; variables: 
 
   if (!posts) return null;
   return (
-    <div className='container flex flex-col'>
+    <div className='container flex flex-col gap-6 py-6'>
       {posts?.map((edge, i) => {
         const post = edge?.node;
         const slug = `/posts/${post?._sys.breadcrumbs.join('/')}`;
-
         return (
-          <Link key={i} href={slug}>
+          <Link key={i} href={slug} className='text-xl font-bold'>
             {post?.title}
           </Link>
         );

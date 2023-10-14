@@ -9,11 +9,12 @@ export default function PostContent(props: { data: PostQuery; variables: {}; que
   const post = data.post;
 
   return (
-    <div className='container flex flex-col prose prose-sm'>
+    <article
+      data-tina-field={tinaField(data.post, 'body')}
+      className='min-w-full py-6 prose prose-slate dark:prose-invert prose-sm'
+    >
       <h1>{post?.title}</h1>
-      <div data-tina-field={tinaField(data.post, 'body')}>
-        <TinaMarkdown content={post?.body} />
-      </div>
-    </div>
+      <TinaMarkdown content={post?.body} />
+    </article>
   );
 }
