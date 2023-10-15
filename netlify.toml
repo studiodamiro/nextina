@@ -5,8 +5,5 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-[dev]
-  command = "npm run dev"
-  targetPort = 3000
-  port = 8888
-  framekwork = "next"
+[[headers]]
+  cache-control= "max-age=604800"
