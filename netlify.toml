@@ -6,6 +6,6 @@
   package = "@netlify/plugin-nextjs"
 
 [[headers]]
-  for = "*.jpg", "*.jpeg", "*.png"
+  for = ["*.jpg", "*.jpeg", "*.png"]
   [headers.values]
     cache-control= "max-age=604800"
