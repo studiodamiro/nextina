@@ -1,9 +1,6 @@
 [build]
-  command = "next build"
+  command = "npm run build"
   publish = ".next"
-
-[functions]
-  included_files = ["src/data/services/**"]
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
