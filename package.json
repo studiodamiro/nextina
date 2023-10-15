@@ -23,7 +23,6 @@
     "tinacms": "^1.5.21"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^4.40.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
