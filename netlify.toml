@@ -1,2 +1,15 @@
+[build]
+  command = "next build"
+  publish = ".next"
+
+[functions]
+  included_files = ["src/data/services/**"]
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[dev]
+  command = "npm run dev"
+  targetPort = 3000
+  port = 8888
+  framekwork = "next"
